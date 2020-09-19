@@ -18,7 +18,7 @@ arr_max = arr.max()
 arr_mean = int(arr.mean())
 arr_out = numpy.where((arr < arr_mean), 10000, arr)
 driver = gdal.GetDriverByName("GTiff")
-outdata = driver.Create("G:/Python_Learning/TEST/NB1.TIF", rows, cols, 1, gdal.GDT_UInt16)
+outdata = driver.Create("G:/Python_Learning/TEST/NB1.TIF", rows, cols, 1, gdal.GDT_UInt16) #for Landsat, gdal.GDT_UInt16 #for ASTER, gdal.GDT_Float64
 outdata.SetGeoTransform(ds.GetGeoTransform())##sets same geotransform as input
 outdata.SetProjection(ds.GetProjection())##sets same projection as input
 outdata.GetRasterBand(1).WriteArray(arr_out)
